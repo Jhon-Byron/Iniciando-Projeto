@@ -1,0 +1,22 @@
+$primary-color: blue;
+$second-color: pink;
+
+.button {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+
+  label {
+    font-weight: bold;
+ }
+
+  button {
+    background-color: $second-color;
+    cursor: pointer;
+    font-weight: bold;
+    border: 0;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+}
