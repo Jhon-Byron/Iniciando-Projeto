@@ -7,5 +7,5 @@ const StyledTitle = styled.h1`
 `
 
 export default function Title(props) {
-  return <StyledTitle>{props.children}</StyledTitle>
+  return <StyledTitle onClick={props.onClick}>{props.children}</StyledTitle>
 }
