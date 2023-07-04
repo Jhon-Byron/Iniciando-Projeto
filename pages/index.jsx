@@ -1,8 +1,13 @@
+import { useState } from 'react'
+
 import Title from '../src/components/title/Title'
 import Button from '../src/components/button/button'
 import Input from '../src/components/input/input'
 
 export default function HomePage() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const HandleLabelClick = () => {
     console.log('clicou aqui')
   }
@@ -10,11 +15,15 @@ export default function HomePage() {
   const HandleLabelSubmit = (event) => {
     event.preventDefault() ///a pagina nao sera atualizada
     console.log('click aqui submit form')
+    console.log({ email, password })
   }
 
-  let email = ''
   const handleChangeInput = (event) => {
-    email = event.target.value
+    setEmail(event.target.value)
+  }
+
+  const handleChangeInputPassword = (event) => {
+    setPassword(event.target.value)
   }
 
   return (
@@ -23,6 +32,11 @@ export default function HomePage() {
       <label onClick={HandleLabelClick}>voltar a pagina...</label>
       <form onSubmit={HandleLabelSubmit}>
         <Input type="text" placeholder="Escreva seu email" onChange={handleChangeInput} />
+        <Input
+          type="password"
+          placeholder="Escreva sua senha"
+          onChange={handleChangeInputPassword}
+        />
         <p>O email digitado foi: {email}</p>
         <Button type="submit">Botão Dentro do form</Button>
       </form>
