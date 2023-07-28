@@ -1,0 +1,34 @@
+import { useRef } from 'react'
+
+import Input from '../src/components/input/input'
+
+export default function UseRefPage() {
+  const numero = useRef(10)
+  const inputRef = useRef(null)
+  const componentInputRef = useRef(null)
+
+  const handleButtonFocus = () => {
+    inputRef.current.focus()
+  }
+
+  return (
+    <>
+      <div>
+        <h4>UseRef Exemplo</h4>
+        <p>Numero: {numero.current}</p>
+      </div>
+      <div>
+        <h4>Exemplo de useRef no input do html:</h4>
+        <input type="text" ref={inputRef} placeholder="Escreva seu texto aqui" />
+        <button onClick={handleButtonFocus}>Foco no input</button>
+      </div>
+      <div>
+        <h4>Exemplo de useRef no input do componente:</h4>
+        <Input type="text" ref={componentInputRef} placeholder="Escreva agora no componente" />
+        <button onClick={() => componentInputRef.current.focus()}>
+          Foco no input do componente
+        </button>
+      </div>
+    </>
+  )
+}
